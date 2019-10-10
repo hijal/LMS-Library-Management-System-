@@ -18,7 +18,7 @@
         if ($row['status'] == 1) {
           header('location: index.php');
           $_SESSION['student_login'] = $email;
-
+          $_SESSION['student_id'] = $row['id'];
         }
         else {
           $status_err = "Please Contact with Liibrarian. Your Account isn't Active";

@@ -222,7 +222,23 @@ if (isset($_POST['update'])) {
 
   $result = mysqli_query($conn, "UPDATE `books` SET `book_name`='$name',`book_author_name`='$author',`book_publication_name`='$pub_name',`book_purchase_date`='$pur_date',`book_price`='$price',`book_qty`='$book_qty',`available_qty`='$available_qty',`librarian_username`='$librarian_username' WHERE `id`='$id'");
   if ($result) {
-    ob_start();
+    //ob_start();
+    if ($result) {
+    ?>
+    <script type="text/javascript">
+      alert("Book Update Succesfully.");
+      javascript:history.go(-1);
+    </script>
+    <?php
+    }
+    else {
+      ?>
+      <script type="text/javascript">
+        alerts("Book Update Failed.");
+      </script>
+      <?php
+    }
+
   }
 }
 ?>

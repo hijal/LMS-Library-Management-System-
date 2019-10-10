@@ -1,4 +1,5 @@
 <?php
+  include '../dbcon.php';
 
   $page = explode('/', $_SERVER['PHP_SELF']);
   //$page = $page[count($page) - 1];
@@ -25,6 +26,7 @@
     <link rel="stylesheet" href="../assets/vendor/toastr/toastr.min.css">
     <link rel="stylesheet" href="../assets/vendor/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="../assets/stylesheets/css/style.css">
+    <link rel="stylesheet" href="../assets/vendor/data-table/media/css/dataTables.bootstrap.min.css">
 
 
 </head>
@@ -153,7 +155,7 @@
                         <nav>
                             <ul class="nav nav-left-lines" id="main-nav">
                                 <li class="<?= $page == 'index.php' ? 'active-item' : ''; ?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
-                                <li class="<?= $page == 'test.php' ? 'active-item' : ''; ?>"><a href="test.php"><i class="fa fa-home" aria-hidden="true"></i><span>test</span></a></li>
+                                <li class="<?= $page == 'books.php' ? 'active-item' : ''; ?>"><a href="books.php"><i class="fa fa-book" aria-hidden="true"></i><span>Books</span></a></li>
                             </ul>
                         </nav>
                     </div>

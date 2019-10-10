@@ -10,6 +10,12 @@
   if (!isset($_SESSION['librarian_login'])) {
    header('location: login.php');
  }
+  $librarian_login = $_SESSION['librarian_login'];
+
+  $result = mysqli_query($conn, "SELECT * FROM `librarian` WHERE `email`='$librarian_login'");
+  //print_r($data);
+  $row = mysqli_fetch_assoc($result);
+
 ?>
 
 <!doctype html>
@@ -122,7 +128,7 @@
                             <img alt="profile photo" src="../assets/images/avatar/avatar_user.jpg" />
                         </div>
                         <div class="user-info">
-                            <span class="user-name">Jane Doe</span>
+                            <span class="user-name"><?= ucwords($row['fname'].' '.$row['lname']);  ?></span>
                             <span class="user-profile">Admin</span>
                         </div>
                         <i class="fa fa-plus icon-open" aria-hidden="true"></i>
@@ -164,6 +170,8 @@
                                         <li class="<?= $page == 'manage_book.php' ? 'active-item' : ''; ?>"><a href="manage_book.php">Manage Books</a></li>
                                     </ul>
                                 </li>
+                                <li class="<?= $page == 'issue_book.php' ? 'active-item' : ''; ?>"><a href="issue_book.php"><i class="fa fa-book" aria-hidden="true"></i><span>Issue Book</span></a></li>
+                                <li class="<?= $page == 'return_book.php' ? 'active-item' : ''; ?>"><a href="return_book.php"><i class="fa fa-book" aria-hidden="true"></i><span>Return Book</span></a></li>
                             </ul>
                         </nav>
                     </div>
